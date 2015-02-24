@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# # vi: set ft=ruby :
+
+require 'fileutils'
+
+Vagrant.require_version ">= 1.6.0"
+
+VAGRANT_BASE = File.join(File.dirname(__FILE__), "lib/vagrant/base.rb")
+
+VAGRANTFILE_API_VERSION = "2"
+
+require VAGRANT_BASE
+
+unless defined?($vm_list)
+  $vm_list = default_vm_list($vm_count)
+end
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  set_plugin_options(config)
+
+  $vm_list.each do |vm|
+    define_vm(config, vm)
+  end
+
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+end
