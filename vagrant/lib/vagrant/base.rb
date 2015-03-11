@@ -33,18 +33,15 @@ def define_vm(vagrant_config, vm_def)
   flavor = vm_def.has_key?('flavor') ? vm_def['flavor'] : $default_flavor
   hostname = vm_def.has_key?('hostname') ? vm_def['hostname'] : $hostname
   forwarded_ports = vm_def.has_key?('forwarded_ports') ? vm_def['forwarded_ports'] : $forwarded_ports
-  #memory = vm_def.has_key?('memory') ? vm_def['memory'] : $memory
-  #cpus = vm_def.has_key?('cpus') ? vm_def['cpus'] : $cpus
 
   vagrant_config.vm.define "#{hostname}" do |node|
+    set_provider_options(node)
+
     if flavor == "ubuntu"
       ubuntu_common(node, vm_def)
     elsif flavor == "fedora"
       fedora_common(node, vm_def)
     end
-
-    #node.memory = memory
-    #node.cpus = cpus
 
     node.vm.hostname = hostname
     forwarded_ports.each do |guest_port, host_port|
