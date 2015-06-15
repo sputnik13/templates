@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-CONFIG = File.join(File.dirname(__FILE__), "../../vagrant_config.rb")
+CONFIG = File.join(File.dirname(__FILE__), "../vagrant_config.rb")
 DEFAULTS = File.join(File.dirname(__FILE__), "defaults.rb")
 UBUNTU_COMMON = File.join(File.dirname(__FILE__), "ubuntu.rb")
 FEDORA_COMMON = File.join(File.dirname(__FILE__), "fedora.rb")

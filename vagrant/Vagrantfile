@@ -5,7 +5,7 @@ require 'fileutils'
 
 Vagrant.require_version ">= 1.6.0"
 
-VAGRANT_BASE = File.join(File.dirname(__FILE__), "lib/vagrant/base.rb")
+VAGRANT_BASE = File.join(File.dirname(__FILE__), ".vagrant_lib/base.rb")
 
 VAGRANTFILE_API_VERSION = "2"
 
