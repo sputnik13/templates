@@ -2,7 +2,7 @@
 # # vi: set ft=ruby :
 
 # Set $hostname to specify an explicit hostname for the VM
-$hostname = File.basename(File.expand_path(File.join(File.dirname(__FILE__),"../.."))).delete('^A-Za-z0-9')
+$hostname = File.basename(File.expand_path(File.join(File.dirname(__FILE__),".."))).delete('^A-Za-z0-9')
 
 $vm_count = 1
 
